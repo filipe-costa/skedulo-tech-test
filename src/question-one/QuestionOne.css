@@ -1,0 +1,65 @@
+@keyframes spinner {
+  0% {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+       transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
+.spinner {
+  height: 100vh;
+  opacity: 1;
+  position: relative;
+  transition: opacity linear 0.1s;    
+}
+
+.spinner::before {
+  animation: 2s linear infinite spinner;
+  border: solid 3px #eee;
+  border-bottom-color: #3D9BFF;
+  border-radius: 50%;
+  content: "";
+  height: 40px;
+  left: 50%;
+  opacity: inherit;
+  position: absolute;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  transform-origin: center;
+  width: 40px;
+  will-change: transform;
+}
+
+.label-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field {
+  margin-top: 10px;
+  padding: 10px;
+  outline: 0px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.input-field:focus {
+  border: 1px solid #3D9BFF;
+  outline: 0px;
+}
+
+.job {
+  padding: 10px;
+  border: 2px solid #3D9BFF;
+  margin: 10px 0;
+}
+
+.job-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.job-text {
+  font-size: 14px;
+}
