@@ -2,6 +2,8 @@ import React, {useState, useEffect, useCallback} from 'react';
 
 import { SectionGroup } from '../components/section/SectionGroup'
 import { SectionPanel } from '../components/section/SectionPanel'
+import Loader from "../components/loader/Loader"
+import Error from "../components/error/Error"
 
 import './QuestionOne.css'
 
@@ -61,14 +63,10 @@ export const QuestionOne = ({service}) => {
           <input id="jobInput" className="input-field" type="text" onChange={handleQueryChange} />
         </label>
         {isLoading && !error && (
-          <div>
-            <div className="spinner" />
-          </div>
+          <Loader />
         )}
         {!isLoading && error && (
-          <div>
-            {error.message}
-          </div>
+          <Error errorMessage={error.message} />
         )}
         {!isLoading && !error && jobs.length > 0 && jobs.map((job) => (
           <div className="job" key={job.id}>
