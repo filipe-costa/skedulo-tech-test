@@ -1,3 +1,7 @@
+/**
+ Input fields
+*/
+
 .label-group {
   display: flex;
   flex-direction: column;
@@ -15,6 +19,10 @@
   border: 1px solid #3D9BFF;
   outline: 0px;
 }
+
+/** 
+ Job cards
+*/
 
 .job {
   padding: 10px;

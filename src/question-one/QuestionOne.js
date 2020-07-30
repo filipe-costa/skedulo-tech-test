@@ -7,6 +7,11 @@ import Error from "../components/error/Error"
 
 import './QuestionOne.css'
 
+import {
+  getHour,
+  formatDate,
+} from "../helpers/date"
+
 export const QuestionOne = ({service}) => {
   const [query, setQuery] = useState("")
   const [jobs, setJobs] = useState([])
@@ -39,22 +44,6 @@ export const QuestionOne = ({service}) => {
     setQuery(event.target.value)
   }
 
-  const getHour = (value) => {
-    return `${formatDateToPlural(new Date(value).getHours())}:${formatDateToPlural(new Date(value).getMinutes())}`
-  }
-
-  const formatDateToPlural = (value) => {
-    return parseInt(value, 10) >= 10 ? value : `0${value}`
-  }
-
-  const formatDate = (value) => {
-    const date = new Date(value)
-    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-
-    return `${weekDays[date.getDay()]} ${monthNames[date.getMonth()]} ${formatDateToPlural(date.getDate())} ${date.getFullYear()}`
-  }
-
   return (
     <SectionGroup>
       <SectionPanel>
@@ -69,9 +58,9 @@ export const QuestionOne = ({service}) => {
           <Error errorMessage={error.message} />
         )}
         {!isLoading && !error && jobs.length > 0 && jobs.map((job) => (
-          <div className="job" key={job.id}>
+          <div className="job" key={`${job.name}-${job.id}`}>
               <p className="job-title">
-                Your worker: {job.name}
+                {job.name}
               </p>
               <p className="job-text">
                 {job.contact.name}

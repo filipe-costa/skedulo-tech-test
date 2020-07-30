@@ -14,17 +14,17 @@ export const DataService = {
   getJobsWithSearchTerm: (searchTerm) => {
     return graphClient.query({
       query: gql`
-      query ($searchTerm: String){
-        jobs(name: $searchTerm) {
-          name,
-          start,
-          end,
-          contact {
-            id
-            name
+        query ($searchTerm: String){
+          jobs(name: $searchTerm) {
+            name,
+            start,
+            end,
+            contact {
+              id
+              name
+            }
           }
         }
-      }
       `,
       variables: {
         searchTerm: searchTerm

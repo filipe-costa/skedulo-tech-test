@@ -1,0 +1,47 @@
+{
+  "jobs": [
+    {
+      "id": 0,
+      "name": "Build a fence",
+      "contactId": "0",
+      "start": "2018-09-01T10:00:00Z",
+      "end": "2018-09-01T11:00:00Z",
+      "location": "Brisbane"
+    },
+    {
+      "id": 1,
+      "name": "Build a shed",
+      "contactId": "1",
+      "start": "2018-09-01T10:15:00Z",
+      "end": "2018-09-01T11:00:00Z",
+      "location": "Brisbane"
+    }
+  ],
+  "resources": [
+    {
+      "id": 1,
+      "name": "Donna Moss"
+    },
+    {
+      "id": 2,
+      "name": "Filipe Costa"
+    }
+  ],
+  "jobAllocations": [
+    {
+      "id": 0,
+      "resourceId": 1,
+      "jobId": 1
+    },
+    {
+      "id": 1,
+      "resourceId": 2,
+      "jobId": 1
+    },
+    {
+      "id": 2,
+      "resourceId": 2,
+      "jobId": 0
+    }
+  ]
+}
